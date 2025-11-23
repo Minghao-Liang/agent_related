@@ -17,6 +17,11 @@ client = MultiServerMCPClient({
         "args": ["perception-tools/server.py"],
         "transport": "stdio",
     },
+    "execution-tools": {
+        "command": "python",
+        "args": ["execution-tools/server.py"],
+        "transport": "stdio",
+    }
 })
 
 # Configure the chat model: Moonshot Kimi
