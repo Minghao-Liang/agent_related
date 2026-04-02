@@ -1,31 +1,20 @@
-# agent_related
+# Agent Related
 
-This repository contains a collection of example projects and experiments I built while learning about AI agents.
+This repository contains experimental projects and runnable examples built while learning about AI agents.
 
-## Directory Overview
+## 📁 Directory Overview
 
-### DeepResearch/
-A lightweight “research agent” implemented with Go + eino. The core loop is:
-generate search queries → web research & evidence notes → reflection to find gaps and iterate → finalize an answer with citations.
+- **`DeepResearch/`**: A lightweight Go-based research agent that follows a complete loop: generate query → web research → reflection → finalize answer with citations.
+- **`miniCoder/`**: A lightweight, interactive AI coding assistant CLI in Python. It acts as an autonomous pair-programmer in the terminal, featuring multi-model support (Claude, DeepSeek, etc.), built-in tools (bash, file operations, search), and session management via slash commands.
+- **`workflow/`**: Minimal runnable examples of classic agent workflow patterns (using LangGraph + LangChain):
+  - *Routing*: Dispatch requests to specialized sub-agents.
+  - *Parallelization*: Execute parallel guardrails or voting patterns.
+  - *Orchestrator-Workers*: Decompose tasks for parallel workers, then synthesize.
+  - *Evaluator-Optimizer*: An evaluate-and-improve loop (generate → evaluate → revise).
+- **`tool/`**: Examples of tool systems and calling strategies:
+  - `langgraph-mcp/`: Integrates MCP (Model Context Protocol) perception/execution servers with a LangChain agent.
+  - `tools_active_discovery/`: Experimental active tool discovery (inspired by MCP-Zero) that retrieves and activates tools on demand to save tokens.
 
-### workflow/
-Minimal runnable examples of classic agent workflow patterns, implemented with LangGraph + LangChain, including:
-- routing: route requests to specialized handlers/sub-agents
-- parallelization: parallel guardrails / parallel voting patterns
-- orchestrator_workers: an orchestrator decomposes tasks, workers run in parallel, then results are synthesized
-- evaluator_optimizer: an evaluate-and-improve loop (generate → evaluate → revise → accept/stop)
+## 📝 Notes
 
-### tool/
-A collection of examples related to tool systems, tool servers, and tool-calling strategies.
-
-#### tool/langgraph-mcp/
-An example that integrates MCP (Model Context Protocol) “perception tools” and “execution tools” servers with a LangChain agent. It includes:
-- an MCP server providing web/document/media parsing, search, public/private data access, and filesystem operations
-- an MCP server for code execution, file edit/write, a virtual terminal, and external integrations (e.g., Calendar, GitHub PR)
-- an interactive agent entry that uses an LLM to drive conversation and tool calls
-
-#### tool/tools_active_discovery/
-An experimental implementation of Active Tool Discovery inspired by MCP‑Zero: start with a minimal initial toolset, then discover/activate tools on demand via natural-language retrieval to reduce token cost and noise and improve robustness.
-
-## Notes
-- Each subdirectory usually includes its own README with more details about the specific project.
+Each subdirectory contains its own `README.md` with detailed documentation and usage instructions.
